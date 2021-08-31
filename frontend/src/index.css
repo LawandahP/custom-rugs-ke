@@ -1,0 +1,43 @@
+main{
+  min-height: 80vh;
+  max-height: 100%;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.rating span {
+  margin: 0.2rem;
+
+}
+
+Carousel {
+  width:900px;
+  height:500px;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel img {
+  display: block;
+  height: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
