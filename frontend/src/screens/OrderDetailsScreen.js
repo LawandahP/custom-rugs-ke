@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Row, ListGroup, Card, Image, Col, Badge } from 'react-bootstrap'
+import { Button, Row, ListGroup, Card, Image, Col, Badge, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -11,6 +11,7 @@ import Loader from '../components/Loader'
 // adds commas to price
 import { commafy } from '../constants/cartConstants'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants'
+import { mpesaStkPush } from '../actions/mpesaAction';
 
 
 
@@ -28,6 +29,9 @@ function OrderDetailsScreen({ match, history }) {
 
     const orderDeliver = useSelector(state => state.orderDeliver)
     const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+
+    const stkPush = useSelector(state => state.stkPush)
+    const { loading: loadingStkPush, success: successStkPush, error: errorStkPush } = stkPush
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -75,6 +79,10 @@ function OrderDetailsScreen({ match, history }) {
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(orderId, paymentResult))
+    }
+
+    const stkPushHandler = () => {
+        dispatch(mpesaStkPush())
     }
 
     const deliverHandler = () => {
@@ -224,10 +232,27 @@ function OrderDetailsScreen({ match, history }) {
 
                                     {order.paymentMethod === "M-Pesa" 
                                         ?   <div className="d-grid gap-2 my-2">
-                                                <Button type='submit' className='btn btn-outline' variant="outline-primary">
-                                                    Pay with <Image src="https://www.gtbank.co.ke/uploads/transforms/general/47459/mpesa_af599ee76a60a3ffac0b778428c6ae2f.png" style={{width: 70, height: 'auto'}} />
+                                                <Button
+                                                    size="sm"
+                                                    style={{borderRadius: '2rem'}}
+                                                    onClick={stkPushHandler}
+                                                    type='submit' 
+                                                    className='btn btn-outline' 
+                                                    variant="outline-primary">
+                                                    <Image className='mb-2' src="https://cdn-images-1.medium.com/fit/t/1600/480/1*ku2fgiHHIfl_VOatvwwZGw.png" style={{width: 150, height: 'auto'}} />
+                                                    {loadingStkPush &&  <Spinner
+                                                            style={{color: 'green'}}
+                                                            as="span"
+                                                            animation="border"
+                                                            size="sm"
+                                                            role="status"
+                                                            aria-hidden="true"
+                                                        />
+                                                    }
+                                                    
                                                 </Button>
                                             </div>
+                                            
                                         :   <div>
                                                 {!sdkReady ? (
                                                     <Loader />
@@ -238,8 +263,15 @@ function OrderDetailsScreen({ match, history }) {
                                                 )}
                                             </div>
                                     }
+                                    {errorStkPush && <Message variant="danger">{errorStkPush}</Message>}
+                                   
+
+                                    
                                 </ListGroup.Item>
                             )}
+                            <ListGroup.Item>
+                                    {successStkPush && <Message variant="success">An stk push has been sent to your phone</Message>}
+                            </ListGroup.Item>
 
                         </ListGroup>
 

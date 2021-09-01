@@ -10,8 +10,9 @@ function Loader() {
             role="status"
             style={{
                 color: '#f16100',
-                height:'7rem',
-                width:'7rem',
+                fontWeight: '5rem',
+                height:'3rem',
+                width:'3rem',
                 margin:'auto',
                 display:'block'
             }}

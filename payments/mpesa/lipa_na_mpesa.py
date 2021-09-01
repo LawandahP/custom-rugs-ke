@@ -1,7 +1,7 @@
 import requests
 
-import mpesa_keys
-from mpesa_keys import generateAccessToken, generatePassword, generateAccessToken, getTimestamp
+from payments.mpesa import mpesa_keys
+from payments.mpesa.mpesa_keys import generateAccessToken, generatePassword, generateAccessToken, getTimestamp
 
 
 def lipaNaMpesaOnline():
@@ -35,4 +35,4 @@ def lipaNaMpesaOnline():
     headers = headers, json = payload)
   print(response.text)
 
-lipaNaMpesaOnline()
+# lipaNaMpesaOnline()

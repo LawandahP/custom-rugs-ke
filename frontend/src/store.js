@@ -12,6 +12,7 @@ import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdatePr
 import { orderCreateReducer, orderDetailsReducer, orderPayReducer, orderListMyReducer, orderListReducer, orderDeliverReducer } from './reducers/orderReducers'
 import { useGeolocationReducer } from './reducers/useGeolocationReducer'
 import { galleryListReducer } from './reducers/galleryReducers'
+import { mpesaStkPushReducer } from './reducers/mpesaReducers'
 
 const reducer = combineReducers({
      
@@ -45,6 +46,8 @@ const reducer = combineReducers({
      galleryList: galleryListReducer,
      
      currencyConvert: currencyConvertReducer,
+
+     stkPush: mpesaStkPushReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?

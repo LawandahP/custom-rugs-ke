@@ -1,9 +1,7 @@
 import base64
 from datetime import datetime
-from typing import final
-from django.http import HttpResponse
+
 import requests
-from requests.api import get
 from requests.auth import HTTPBasicAuth
 
 consumer_key = 'yVS3HM45wEfZYftAsptGOr8wkMCypzbd'

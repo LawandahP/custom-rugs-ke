@@ -1,4 +1,3 @@
-from re import S
 from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 
@@ -126,4 +125,4 @@ def updateOrderToDelivered(request, slug):
     order.deliveredAt = datetime.now()
     order.save()
 
-    return Response({"detail": "Order Delivered Successfully  "}, status=status.HTTP_200_OK)
+    return Response({"detail": "Order Delivered Successfully"}, status=status.HTTP_200_OK)
