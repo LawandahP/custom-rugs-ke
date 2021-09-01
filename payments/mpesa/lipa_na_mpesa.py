@@ -24,7 +24,7 @@ def lipaNaMpesaOnline():
       "PartyA": mpesa_keys.phone_number,
       "PartyB": mpesa_keys.paybill_no,
       "PhoneNumber": mpesa_keys.phone_number,
-      "CallBackURL": "https://mydomain.com/path",
+      "CallBackURL": "https://customrugskenya.herokuapp.com/api/payments/lnm",
       "AccountReference": "GITHAIGA",
       "TransactionDesc": "Payment of X" 
     }
