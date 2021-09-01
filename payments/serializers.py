@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import LipaNaMpesaOnline
+from payments.models import LipaNaMpesaOnline
 
 
 class LipaNaMpesaOnlineSerializer(serializers.ModelSerializer):

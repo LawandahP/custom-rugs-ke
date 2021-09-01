@@ -1,8 +1,8 @@
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-from serializers import LipaNaMpesaOnlineSerializer
-from models import LipaNaMpesaOnline
+from payments.serializers import LipaNaMpesaOnlineSerializer
+from payments.models import LipaNaMpesaOnline
 
 
 class LipaNaMpesaCallbackUrlAPIView(CreateAPIView):
