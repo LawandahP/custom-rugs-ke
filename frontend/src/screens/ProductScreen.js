@@ -103,7 +103,11 @@ function ProductScreen({ match, history }) {
 
     return (
         <div>
-            <Link to='/shop' variant='info' type="button">Continue shopping</Link>
+            <Button
+                size="sm">
+                <Link to='/shop'>Continue shopping</Link>
+            </Button>
+            
 
             { loading? 
                 <Loader />

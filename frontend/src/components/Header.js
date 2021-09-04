@@ -44,7 +44,7 @@ function Header() {
             <Navbar variant="" expand="lg" collapseOnSelect>
                 <Container>
                     <LinkContainer to="/">
-                        <Navbar.Brand>CustomRugsKenya</Navbar.Brand>
+                        <Navbar.Brand>CRugsKe</Navbar.Brand>
                     </LinkContainer>
                     {/* {
                         location.loaded ? JSON.stringify(location)
@@ -53,7 +53,7 @@ function Header() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"  />
                     
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
+                    <Nav className="ml-5">
 
                         <SearchBox xs={12} /> 
                         
@@ -148,6 +148,7 @@ function Header() {
                         ) : ("")}
 
                         <NavDropdown.Divider />
+
                         <LinkContainer align="center" title="cart" to="/cart">
                             <Nav.Link>
                                 <i className="fas fa-shopping-cart">

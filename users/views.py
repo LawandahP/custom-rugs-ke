@@ -130,7 +130,7 @@ def getUsers(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def getUserBySlug(request, slug):
     users = User.objects.get(slug=slug)
     serializer = UserSerializer(users, many=False)

@@ -40,7 +40,7 @@ function LoginScreen({location, history}) {
 
     return (
         <FormContainer>
-            <h3>SIGN IN</h3>
+            <h3 className="my-3" style={{color: "#000"}}>SIGN IN</h3>
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>

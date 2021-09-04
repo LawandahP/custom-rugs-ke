@@ -27,15 +27,17 @@ function SearchBox() {
         <Form onSubmit={submitHandler} inline>
              <InputGroup>
                  <Form.Control 
-                    style={{color: '#f16100', height: "100%", borderRadius: "3rem", borderColor: "#f16100"}}
+                    style={{color: '#f16100', height: "100%", borderColor: "#f16100"}}
+                    size="sm"
                     placeholder="search..."
                     aria-label="search"
                     onChange={(e) => setSearch(e.target.value)}
                     /> 
                   <Button
                     type='submit'
+                    size="sm"
                     title="search"  
-                    style={{color: '#f16100'}}
+                    style={{background: '#f16100', color: "#fff"}}
                     variant="none" 
                     id="search-button">
                     <i className="fas fa-search"></i>

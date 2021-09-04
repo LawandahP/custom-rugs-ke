@@ -29,7 +29,7 @@ function ShopScreen({ history }) {
     return (
         <div>
             {/* <h1>Latest Merch</h1> */}
-            { loading ? <Loader />
+            { loading ? <Loader className="my-6"/>
                 : error ? <Message variant='danger'>{error}</Message>
                 :
                 <div>

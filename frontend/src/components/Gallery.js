@@ -28,42 +28,27 @@ function Gallery() {
                 {loading ? <Loader />
                     : error ? <Message variant='danger'>{error}</Message>
                     : (
-                
-                
-                    
                         <div>
-                        <Row className="pt-5">
-                        
-                            <Col align="center">
-                                <h1 style={{color: "#000"}}>Get Your Personalized Rug Today</h1>
-                            </Col>
-                        
-                        </Row>
-                        <Row>
-                            <Col align="center">
-                                <p>The best design inspiration - expertly curated for you</p>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col align="center">
-                                <Link to="/shop">
-                                    <Button style={{borderRadius: "3rem"}}>VISIT OUR SHOP</Button>
-                                </Link>
-                            </Col>
-                        </Row>
+                            <Row>
+                                <Col align="center">
+                                    <Link to="/shop">
+                                        <Button style={{borderRadius: "3rem"}}>VISIT OUR SHOP</Button>
+                                    </Link>
+                                </Col>
+                            </Row>
 
 
-                        {/* //gallery */}
+                            {/* //gallery */}
 
-                        <Row className="pt-5" align="center">
-                        { images.map(image => (
-                            <Col md={6} xs={6} sm={6} xl={3} className="my-2">
-                                <Card style={{boxShadow: "2px 2px 2px 2px grey", borderRadius: "1rem"}}>
-                                    <Image style={{ borderRadius: "1rem", boxShadow: "5px"}} src={image.picture}></Image>
-                                </Card>
-                            </Col>
-                        ))}
-                        </Row>
+                            <Row className="pt-5" align="center">
+                            { images.map(image => (
+                                <Col md={6} xs={6} sm={6} xl={3} className="my-2">
+                                    <Card style={{boxShadow: "2px 2px 2px 2px grey", borderRadius: "1rem"}}>
+                                        <Image style={{ borderRadius: "1rem", boxShadow: "5px"}} src={image.picture}></Image>
+                                    </Card>
+                                </Col>
+                            ))}
+                            </Row>
                         </div>
                     
                     

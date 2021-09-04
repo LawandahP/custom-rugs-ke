@@ -173,8 +173,11 @@ h3 {
 
 @media (max-width:450px) {
   
+
+
   .button {
     font-size: 11px;
+    size: 1rem;
   }
   body {
     font-size: 11px;
@@ -658,7 +661,7 @@ progress {
 
 .initialism {
   font-size: .875em;
-  text-transform: uppercase
+  /* text-transform: uppercase */
 }
 
 .blockquote {
@@ -4157,7 +4160,7 @@ fieldset:disabled .btn {
   padding: .25rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #1a1a1a;
+  color: #7a7a7a;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
@@ -4167,7 +4170,7 @@ fieldset:disabled .btn {
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-  color: #171717;
+  color: #f16100;
   background-color: #f7f7f9
 }
 
@@ -4175,7 +4178,7 @@ fieldset:disabled .btn {
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #1a1a1a
+  background-color: #f16100
 }
 
 .dropdown-item.disabled,
@@ -4458,9 +4461,9 @@ fieldset:disabled .btn {
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  justify-content: space-evenly ;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -4482,8 +4485,8 @@ fieldset:disabled .btn {
 }
 
 .navbar-brand {
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
+  /* padding-top: .3125rem;
+  padding-bottom: .3125rem; */
   margin-right: 1rem;
   font-size: 1.25rem;
   text-decoration: none;
@@ -4525,7 +4528,7 @@ fieldset:disabled .btn {
   align-items: center
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
   color: #f16100;
   padding: .25rem .75rem;
   font-size: 1.25rem;
@@ -4533,7 +4536,7 @@ fieldset:disabled .btn {
   background-color: none;
   border: 1px solid transparent;
   transition: box-shadow .15s ease-in-out
-}
+} */
 
 @media (prefers-reduced-motion:reduce) {
   .navbar-toggler {
@@ -4549,7 +4552,7 @@ fieldset:disabled .btn {
 .navbar-toggler:focus {
   text-decoration: none;
   outline: 0;
-  box-shadow: 0 0 0 .25rem
+  /* box-shadow: 0 0 0 .25rem */
 }
 
 .navbar-toggler-icon {
@@ -4560,8 +4563,7 @@ fieldset:disabled .btn {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  background-color: #000;
-
+  color: #000;
 }
 
 .navbar-nav-scroll {
@@ -11385,8 +11387,8 @@ fieldset:disabled .btn {
 
 .navbar {
   font-size: .875rem;
-  text-transform: uppercase;
-  font-weight: 600
+  /* text-transform: uppercase; */
+  font-weight: 600;
 }
 
 .navbar-nav .nav-link {
@@ -11420,7 +11422,7 @@ fieldset:disabled .btn {
 
 .btn {
   font-size: .875rem;
-  text-transform: uppercase
+  text-transform: none
 }
 
 .btn-group-sm>.btn,
@@ -11477,7 +11479,7 @@ h3,
 h4,
 h5,
 h6 {
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 3px
 }
 

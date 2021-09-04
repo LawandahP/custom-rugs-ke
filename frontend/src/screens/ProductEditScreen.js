@@ -111,16 +111,25 @@ function ProductEditScreen({ match, history }) {
 
     return (
         <div>
-            <Link to='/products'>
-            <i class="fas fa-arrow-left"></i>
-            </Link>
 
             <FormContainer>
+                
             {loadingUpdate && <Loader />}
             {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
             {/* {successUpdate && <Message variant="success">{message}</Message>} */}
 
-            <h3 style={{"color": "#000", "textAlign": "center"}} className="mb-2">Edit Product</h3>
+            <Row>
+                <Col className="text-start">
+                    <Link to='/products'>
+                        <i className="fas fa-arrow-left"></i> 
+                    </Link>
+                </Col>
+                <Col classNAme=" mb-2">
+                    <h3 style={{"color": "#000"}} className="my-2">Edit Product</h3>
+                </Col>
+            </Row>
+            
+            
             
             {/* {loadingUpdate && <Loader />}
             {errorUpdate && <Message variant='danger'>{errorUpdate}</Message> }
@@ -154,21 +163,12 @@ function ProductEditScreen({ match, history }) {
                             </Form.Group>
                         </Col>
                     </Row>
+
                     <Row>
-
+                        <Image src={image} onChange={(e) => setImage(e.target.src)} />
                         
-                            <Image src={image} onChange={(e) => setImage(e.target.src)} />
-                            
-                            <Form.Control type="file" onChange={uploadFileHandler} multiple/>
-                            {uploading && <Loader />}
-                            
-
-                            
-                            
-                       
-                        
-
-                        
+                        <Form.Control type="file" onChange={uploadFileHandler} multiple/>
+                        {uploading && <Loader />}       
                     </Row>
 
                     <Row>
