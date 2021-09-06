@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Row, Col, Button, Card, Image } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+
 import { listGallery } from '../actions/galleryActions'
 
 import  Loader  from './Loader'
@@ -29,15 +29,7 @@ function Gallery() {
                     : error ? <Message variant='danger'>{error}</Message>
                     : (
                         <div>
-                            <Row>
-                                <Col align="center">
-                                    <Link to="/shop">
-                                        <Button style={{borderRadius: "3rem"}}>VISIT OUR SHOP</Button>
-                                    </Link>
-                                </Col>
-                            </Row>
-
-
+                            
                             {/* //gallery */}
 
                             <Row className="pt-5" align="center">

@@ -118,7 +118,7 @@ function ProductEditScreen({ match, history }) {
             {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
             {/* {successUpdate && <Message variant="success">{message}</Message>} */}
 
-            <Row>
+            <Row className="my-3">
                 <Col className="text-start">
                     <Link to='/products'>
                         <i className="fas fa-arrow-left"></i> 

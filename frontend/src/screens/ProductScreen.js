@@ -103,10 +103,9 @@ function ProductScreen({ match, history }) {
 
     return (
         <div>
-            <Button
-                size="sm">
-                <Link to='/shop'>Continue shopping</Link>
-            </Button>
+            <Link to="/shop">
+                <i className="fas fa-arrow-left my-3"></i>
+            </Link>
             
 
             { loading? 

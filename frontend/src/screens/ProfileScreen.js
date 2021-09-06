@@ -226,15 +226,22 @@ function ProfileScreen({ match, history }) {
 
                             </Form>            
                         </Tab>
-
+                        
+                        
                         <Tab eventKey='my-orders' title="My Orders">
+                            
                             {loadingOrders ? (
                                 <Loader />
                             ) : errorOrders ? (
                                 <Message variant="danger">{errorOrders}</Message>
                             ): (
+                                
+                                
                                 <div className="my-4">
+                                    
                                     <Table striped responsive className="table-sm">
+                                    {!orders ? <i style={{color: "orange"}} className="fas fa-microscope"></i>
+                                        :
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
@@ -246,7 +253,7 @@ function ProfileScreen({ match, history }) {
                                             </tr>
                                             
                                         </thead>
-
+                                    }
                                         {orders.map(order => 
                                             <tr key={order.slug}>
                                                 <td>{order.created_at.substring(0, 10)}</td>
@@ -282,16 +289,7 @@ function ProfileScreen({ match, history }) {
                                                 </td>
                                             </tr>
                                         )}
-                                    </Table>
-
-
-
-
-                                
-                                    
-
-                            
-                                        
+                                    </Table>        
                                 </div>
                                 
                             )}

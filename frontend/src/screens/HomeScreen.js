@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import ProductCarousel from '../components/ProductCarousel'
 import Gallery from '../components/Gallery'
 
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Button } from 'react-bootstrap'
 
 function HomeScreen() {
     return (
@@ -19,6 +21,14 @@ function HomeScreen() {
             <Row>
                 <Col align="center">
                     <p>The best design inspiration - expertly curated for you</p>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col align="center">
+                    <Link to="/shop">
+                        <Button style={{borderRadius: "3rem"}}>VISIT OUR SHOP</Button>
+                    </Link>
                 </Col>
             </Row>
             <Gallery />

@@ -7,9 +7,18 @@ import { saveShippingAddress } from '../actions/cartActions'
 
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
+import Map from '../components/Address'
+import GooglePlaces from '../components/GooglePlaces'
+import Places from '../components/Places'
+
+import Loader from '../components/Loader'
+import useGeoLocation from '../components/useGeolocation'
+
 
 
 function ShippingScreen({ history }) {
+
+    const location = useGeoLocation()
 
     const cart = useSelector(state => state.cart)
     const { shippingAddress } = cart
@@ -39,111 +48,133 @@ function ShippingScreen({ history }) {
     }, [userInfo])
 
     return (
-        <FormContainer>
-            {/* load in CheckoutSteps component */}
-            <CheckoutSteps step1 step2/>
-            <h4 className="my-2">Shipping Info</h4>
-            <Form> 
-                <Form.Group controlId='county' className="my-2">
-                <Form.Label>County</Form.Label>
-                    <Form.Control as="select"
-                        value={county ? county : ""}
-                        onChange={(e) => setCounty(e.target.value)}>
+        
+        // <div>
+        
+        // <FormContainer>
+        //    
+        //     <Form> 
+        //         <Form.Group controlId='county' className="my-2">
+        //         <Form.Label>County</Form.Label>
+        //             <Form.Control as="select"
+        //                 value={county ? county : ""}
+        //                 onChange={(e) => setCounty(e.target.value)}>
                             
 
-                            <option>Mombasa</option>
-                            <option>Kwale</option>
-                            <option>Kilifi</option>
-                            <option>Tana River</option>
-                            <option>Lamu</option>
-                            <option>Taita-Taveta</option>
-                            <option>Garissa</option>
-                            <option>Wajir</option>
-                            <option>Mandera</option>
-                            <option>Marsabit</option>
-                            <option>Isiolo</option>
-                            <option>Meru</option>
-                            <option>Tharaka-Nithi</option>
-                            <option>Embu</option>
-                            <option>Kitui</option>
-                            <option>Machakos</option>
-                            <option>Makueni</option>
-                            <option>Nyandarua</option>
-                            <option>Nyeri</option>
-                            <option>Kirinyaga</option>
-                            <option>Murang'a</option>
-                            <option>Kiambu</option>
-                            <option>Turkana</option>
-                            <option>West Pokot</option>
-                            <option>Samburu</option>
-                            <option>Trans Nzoia</option>
-                            <option>Uasin Gishu</option>
-                            <option>Elgeyo-Marakwet</option>
-                            <option>Nandi</option>
-                            <option>Baringo</option>
-                            <option>Laikipia</option>
-                            <option>Nakuru</option>
-                            <option>Narok</option>
-                            <option>Kajiado</option>
-                            <option>Kericho</option>
-                            <option>Bomet</option>
-                            <option>Kakamega</option>
-                            <option>Vihiga</option>
-                            <option>Bungoma</option>
-                            <option>Busia</option>
-                            <option>Siaya</option>
-                            <option>Kisumu</option>
-                            <option>Homa Bay</option>
-                            <option>Migori</option>
-                            <option>Kisii</option>
-                            <option>Nyamira</option>
-                            <option>Nairobi</option>    
+        //                     <option>Mombasa</option>
+        //                     <option>Kwale</option>
+        //                     <option>Kilifi</option>
+        //                     <option>Tana River</option>
+        //                     <option>Lamu</option>
+        //                     <option>Taita-Taveta</option>
+        //                     <option>Garissa</option>
+        //                     <option>Wajir</option>
+        //                     <option>Mandera</option>
+        //                     <option>Marsabit</option>
+        //                     <option>Isiolo</option>
+        //                     <option>Meru</option>
+        //                     <option>Tharaka-Nithi</option>
+        //                     <option>Embu</option>
+        //                     <option>Kitui</option>
+        //                     <option>Machakos</option>
+        //                     <option>Makueni</option>
+        //                     <option>Nyandarua</option>
+        //                     <option>Nyeri</option>
+        //                     <option>Kirinyaga</option>
+        //                     <option>Murang'a</option>
+        //                     <option>Kiambu</option>
+        //                     <option>Turkana</option>
+        //                     <option>West Pokot</option>
+        //                     <option>Samburu</option>
+        //                     <option>Trans Nzoia</option>
+        //                     <option>Uasin Gishu</option>
+        //                     <option>Elgeyo-Marakwet</option>
+        //                     <option>Nandi</option>
+        //                     <option>Baringo</option>
+        //                     <option>Laikipia</option>
+        //                     <option>Nakuru</option>
+        //                     <option>Narok</option>
+        //                     <option>Kajiado</option>
+        //                     <option>Kericho</option>
+        //                     <option>Bomet</option>
+        //                     <option>Kakamega</option>
+        //                     <option>Vihiga</option>
+        //                     <option>Bungoma</option>
+        //                     <option>Busia</option>
+        //                     <option>Siaya</option>
+        //                     <option>Kisumu</option>
+        //                     <option>Homa Bay</option>
+        //                     <option>Migori</option>
+        //                     <option>Kisii</option>
+        //                     <option>Nyamira</option>
+        //                     <option>Nairobi</option>    
 
-                    </Form.Control>
-                </Form.Group>
+        //             </Form.Control>
+        //         </Form.Group>
 
-                <Form.Group controlId='county' className="my-2">
-                    <Form.Label>Sub County(constituency)</Form.Label>
-                    <Form.Control 
-                        required
-                        type='text'
-                        placeholder='Enter constituency'
-                        value={subCounty ? subCounty : ''}
-                        onChange={(e) => setsubCounty(e.target.value)}>
-                    </Form.Control>
-                </Form.Group>
+        //         <Form.Group controlId='county' className="my-2">
+        //             <Form.Label>Sub County(constituency)</Form.Label>
+        //             <Form.Control 
+        //                 required
+        //                 type='text'
+        //                 placeholder='Enter constituency'
+        //                 value={subCounty ? subCounty : ''}
+        //                 onChange={(e) => setsubCounty(e.target.value)}>
+        //             </Form.Control>
+        //         </Form.Group>
 
-                <Form.Group controlId='ward' className="my-2">
-                    <Form.Label>Ward</Form.Label>
-                    <Form.Control 
-                        required
-                        type='text'
-                        placeholder='Enter ward'
-                        value={ward ? ward : ''}
-                        onChange={(e) => setWard(e.target.value)}>
-                    </Form.Control>
-                </Form.Group>
+        //         <Form.Group controlId='ward' className="my-2">
+        //             <Form.Label>Ward</Form.Label>
+        //             <Form.Control 
+        //                 required
+        //                 type='text'
+        //                 placeholder='Enter ward'
+        //                 value={ward ? ward : ''}
+        //                 onChange={(e) => setWard(e.target.value)}>
+        //             </Form.Control>
+        //         </Form.Group>
 
-                <Form.Group controlId="shipping" className="my-2">
-                    <Form.Label>Shipping Company</Form.Label>
-                    <Form.Control 
-                        required
-                        type='text'
-                        placeholder='Ship with..'
-                        value={shippingCompany ? shippingCompany : ''}
-                        onChange={(e) => setShippingCompany(e.target.value)}>
-                    </Form.Control>
-                </Form.Group>
+        //         <Form.Group controlId="shipping" className="my-2">
+        //             <Form.Label>Shipping Company</Form.Label>
+        //             <Form.Control 
+        //                 required
+        //                 type='text'
+        //                 placeholder='Ship with..'
+        //                 value={shippingCompany ? shippingCompany : ''}
+        //                 onChange={(e) => setShippingCompany(e.target.value)}>
+        //             </Form.Control>
+        //         </Form.Group>
 
-                <Button 
-                    type="submit" 
-                    variant="primary"
-                    onClick={submitHandler}>
-                        Next
-                </Button>
+        //         <Button 
+        //             type="submit" 
+        //             variant="primary"
+        //             onClick={submitHandler}>
+        //                 Next
+        //         </Button>
 
-            </Form>
-        </FormContainer>
+        //     </Form>
+        // </FormContainer>
+
+        <div>
+            {/* load in CheckoutSteps component} */}
+            <CheckoutSteps step1 step2/>
+            <h4 style={{color: "#000"}}>Ship To</h4>
+            {/* {
+                location.loaded ? (location.coordinates.lat)
+                : <Loader />
+            } */}
+        
+        <Places />
+
+        {/* <Map
+            // google={this.google}
+            center={{lat: -1.2830223022980964, lng: 36.821975581371156}} 
+            height='300px'
+            zoom={15}
+        /> */}
+        </div>
+         
+       
     )
 }
 
